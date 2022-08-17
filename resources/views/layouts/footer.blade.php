@@ -1,15 +1,10 @@
 <footer class="relative full-width">
     <div class=" bottom-footer full-width">
         <div class="clearfix container-web">
-            <div class=" container">
+            <div class="container">
                 <div class="row">
-                    <div class="clearfix col-md-7 clear-padding copyright">
-                        <p class="clear-margin">Copyright © 2018 by EngoCreative. All Rights Reserved.</p>
-                    </div>
-                    <div class="clearfix footer-icon-bottom col-md-5 float-right clear-padding">
-                        <div class="icon_logo_footer float-right">
-                            <img src="img/image_payment_footer-min.png" alt="">
-                        </div>
+                    <div class="clearfix col-md-12 clear-padding copyright">
+                        <p class="clear-margin text-center">Copyright © 2022 by Tess.</p>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +22,15 @@ Route::get('/', function(){
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //index
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/category', [HomeController::class, 'categorySearch'])->name('categorySearch');
+    Route::get('/type', [HomeController::class, 'typeSearch'])->name('typeSearch');
+
+    //cart
+    Route::get('/addtocart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 });
 
 

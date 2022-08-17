@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Inventory;
 
 class HomeController extends Controller
 {
@@ -11,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $foods = Inventory::where('FOD', 'foods')->get();
+        $drinks = Inventory::where('FOD', 'drinks')->get();
+        return view('index', ['foods' => $foods, 'drinks' => $drinks]);
+    }
+
+    public function categorySearch(Request $request){
+        $datas = Inventory::where('FOD', $request->category)->get();
+
+        return view('searchCategory', ['datas' => $datas]);
+    }
+
+    public function typeSearch(Request $request){
+        $datas = Inventory::where('type', $request->type)->get();
+
+        return view('searchType', ['datas' => $datas]);
     }
 }

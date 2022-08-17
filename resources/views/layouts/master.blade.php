@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/Tess.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/logo/tess-vertical.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:100,300,400,500,700,900%7CRoboto+Condensed:100,300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/icon-font-linea.css') }}">
@@ -39,11 +39,12 @@
     @include('layouts.footer')
 </div>
 <!-- End Footer Box -->
-<script src="{{ ('js/jquery-3.3.1.min.js') }}" defer=""></script>
-<script src="{{ ('js/bootstrap.min.js') }}" defer=""></script>
-<script src="{{ ('js/multirange.js') }}" defer=""></script>
-<script src="{{ ('js/owl.carousel.min.js') }}" defer=""></script>
-<script src="{{ ('js/sync_owl_carousel.js') }}" defer=""></script>
-<script src="{{ ('js/scripts.js') }}" defer=""></script>
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}" defer=""></script>
+<script src="{{ asset('js/bootstrap.min.js') }}" defer=""></script>
+<script src="{{ asset('js/multirange.js') }}" defer=""></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}" defer=""></script>
+<script src="{{ asset('js/sync_owl_carousel.js') }}" defer=""></script>
+<script src="{{ asset('js/scripts.js') }}" defer=""></script>
+@yield('scripts')
 </body>
 </html>
