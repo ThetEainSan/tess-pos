@@ -34,15 +34,25 @@ class CartController extends Controller
             $inventory->save();
         }
         
-
-        return redirect()->back()->with('success', 'Added to Cart');
+       return redirect()->back()->with('success', 'Added to Cart');
     }
 
     public function checkout(Request $request){
-        // $cart = Cart::where('employee_id', Auth::user()->id)
-        //                 ->where('status', 'in')
-        //                 ->get();
+        $carts = Cart::where('employee_id', Auth::user()->id)
+                        ->where('status', 'in')
+                        ->get();
+        $sub_price = 0;
+        $total_price = 0;
         
-        return view('checkout');
+        foreach($carts as $cart){
+            $inventory = Inventory::find($cart->inventory_id);
+            $sub_price += $cart->quantity * $inventory->price;
+        }
+        $tax = 5;
+        $total_price += $sub_price *(5/100);
+        return view('checkout', ['carts' => $carts,
+                                 'tax' => $tax,
+                                 'sub_price' => $sub_price,
+                                 'total_price' => $total_price]);
     }
 }
