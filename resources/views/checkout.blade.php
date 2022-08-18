@@ -46,10 +46,10 @@
                     </div>
                 @endforeach
                 
-                {{-- <aside class="btn-shoping-cart justify-content top-margin-default bottom-margin-default">
-                    <a href="#" class="clear-margin animate-default">Continue Shopping</a>
-                    <a href="#" class="clear-margin animate-default">Update Cart</a>
-                </aside> --}}
+                <aside class="btn-shoping-cart justify-content top-margin-default bottom-margin-default">
+                    {{-- <a href="#" class="clear-margin animate-default">Continue Shopping</a> --}}
+                    <a href="{{ route('deleteCart') }}" class="btn-proceed-checkout button-hover-red full-width top-margin-15-default">Delete Cart</a>
+                </aside>
             </div>
             <!-- End Content Shoping Cart -->
             <!-- Content Right -->
@@ -74,7 +74,9 @@
                         <p class="text-red price-shoping-cart">{{ $total_price }} MMK</p>
                     </div>
                 </div>
-                <button class="btn-proceed-checkout button-hover-red full-width top-margin-15-default">Proceed to Checkout</button>
+                <a href="{{ route('checkoutConfirm', ['total_price' => $total_price]) }}">
+                    <button class="btn-proceed-checkout full-width top-margin-15-default" style="background-color: grey">Proceed to Checkout</button>
+                </a>               
             </div>
             <!-- End Content Right -->
         </div>

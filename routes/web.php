@@ -30,7 +30,9 @@ Route::middleware(['auth'])->group(function () {
 
     //cart
     Route::get('/addtocart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/cart/delete', [CartController::class, 'deleteCart'])->name('deleteCart');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout/confirm', [CartController::class, 'checkoutConfirm'])->name('checkoutConfirm');
 });
 
 

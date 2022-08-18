@@ -71,8 +71,22 @@
                         <div class="relative clearfix">
                             <div class="bar-category bottom-margin-default border no-border-r no-border-l no-border-t">
                                 <div class="row">
-                                    <div class="col-md-5 col-sm-5 col-xs-4">
+                                    <div class="col-md-10 col-sm-10 col-xs-4">
                                         <h3 class="title-category-page clear-margin">Foods</h3>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+                                        @php
+                                            $cart = App\Models\Cart::where('status', 'in')->first();
+                                        @endphp
+                                        @if ($cart != null)
+                                            <a href="{{ route('checkout') }}">
+                                                <button class="btn btn-warning">Checkout</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('checkout') }}">
+                                                <button class="btn btn-warning" style="display: none;">Checkout</button>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +96,8 @@
                                     <div class="image-product relative overfollow-hidden">
                                         <div class="center-vertical-image">
                                             <img class="img-responsive"
-                                                src="{{ env('ADMINSITE_URL') . 'img/food/' . $food->image }}" alt="Product" />
+                                                src="{{ env('ADMINSITE_URL') . 'img/food/' . $food->image }}"
+                                                alt="Product" />
                                         </div>
                                         <a href="#"></a>
                                         <ul class="option-product animate-default">

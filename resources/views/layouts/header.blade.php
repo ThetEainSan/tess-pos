@@ -29,19 +29,7 @@
                 <div class="clearfix img-fluid">
                     <a href="{{ route('home') }}">
                         <img alt="Logo" src="{{ asset('img/logo/tess-vertical.png') }}" height="90%" width="80%"/>
-                    </a>
-                    @php
-                        $cart = App\Models\Cart::where('status','in')->first();
-                    @endphp
-                    @if ($cart != null)
-                        <a href="{{ route('checkout') }}">
-                            <button class="btn btn-warning">Checkout</button>
-                        </a>
-                    @else
-                        <a href="{{ route('checkout') }}">
-                            <button class="btn btn-warning" style="display: none;">Checkout</button>
-                        </a>
-                    @endif                   
+                    </a>                  
                 </div>
             </div>
         </div>
